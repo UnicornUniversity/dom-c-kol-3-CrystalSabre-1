@@ -35,16 +35,14 @@ function getRandomSurname() {
 // vytvoření náhodného data narození tak, aby věk byl v intervalu
 function generateBirthdate(minAge, maxAge) {
   const now = new Date();
-
-  // přepočet roku s přesností 365.25 dne
   const yearMs = 365.25 * 24 * 60 * 60 * 1000;
 
-  const maxBirthMs = now.getTime() - (minAge * yearMs); // nejstarší možné datum narození
-  const minBirthMs = now.getTime() - (maxAge * yearMs); // nejmladší možné datum
+  const maxBirthMs = now.getTime() - (minAge * yearMs);
+  const minBirthMs = now.getTime() - (maxAge * yearMs);
 
   const randomMs = minBirthMs + Math.random() * (maxBirthMs - minBirthMs);
 
-  return new Date(randomMs).toISOString(); // přesně podle testů
+  return new Date(randomMs).toISOString();
 }
 
 // vygenerování jednoho zaměstnance
@@ -87,10 +85,5 @@ function main(dtoIn) {
   };
 }
 
-// ukázkové volání
-/*
-const input = { numEmployees: 5, minAge: 25, maxAge: 35 };
-console.log(main(input));
-*/
-
-module.exports = { main };
+// export for autograder
+export { main };

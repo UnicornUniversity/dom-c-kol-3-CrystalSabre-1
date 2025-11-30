@@ -85,5 +85,5 @@ function main(dtoIn) {
   };
 }
 
-// export for autograder
-export { main };
+// **CommonJS export for autograder**
+module.exports = { main };
